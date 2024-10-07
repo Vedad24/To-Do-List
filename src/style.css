@@ -70,4 +70,84 @@ body{
 
 .content{
     background-color: #FFEEAD;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
 }
+
+.todoName, .date, .tasks{
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 90%;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.todoName{
+
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasks{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 450px;
+    gap: 1rem;
+}
+
+.task{
+    border-bottom: 2px solid rgb(153, 151, 151);
+    font-size: 20px;
+    display: flex;
+    gap: 1rem;
+    padding-left: 0.7rem;
+    padding-bottom: 0.2rem;
+    margin: 0.5rem 0;
+}
+
+.task input{
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.task .delete{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #FFAD60;
+    border-top-right-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border: 5px solid #FFAD60;
+    border-top-right-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+  }
+  
+  /* Handle on hover */
+ /*  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(216, 216, 216);
+  } */
