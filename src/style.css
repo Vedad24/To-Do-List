@@ -18,6 +18,15 @@ body{
     grid-template-rows: 0.5fr 2fr 1fr 0.2fr;
 }
 
+.sidebar .lists button{
+    background-color: rgb(255, 255, 255, 0);
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+}
+
 .sidebar h1{
     font-size: 45px;
     padding: 1rem 1.2rem;
@@ -27,9 +36,13 @@ body{
     padding: 1.5rem 2.5rem;
 }
 
-.sidebar img{
+.sidebar i{
     width: 16px;
     margin-right: 6px;
+}
+
+.homeList span, .projectList span{
+    margin-right: 0.2rem;
 }
 
 .sidebar h2{
@@ -49,11 +62,7 @@ body{
     margin-bottom: 2rem;
 }
 
-.sidebar .projectList img{
-    width: 16px;
-}
-
-.sidebar button{
+.sidebar .login{
     width: 150px;
     height: 26%;
     align-self: center;
@@ -109,20 +118,44 @@ body{
     border-bottom: 2px solid rgb(153, 151, 151);
     font-size: 20px;
     display: flex;
-    gap: 1rem;
-    padding-left: 0.7rem;
+    justify-content: space-between;
+    padding-inline: 1rem;
     padding-bottom: 0.2rem;
     margin: 0.5rem 0;
+
+    align-items: center;
+
+}
+
+.taskText{
+    display: flex;
+    gap: 1rem;
 }
 
 .task input{
-    border-radius: 20px;
-    padding: 1rem;
+    width: 20px;
+    accent-color: green;
 }
 
-.task .delete{
-    width: 20px;
-    height: 20px;
+.task .delete, .edit{
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+    background-color: rgb(255, 255, 255, 0);
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task .delete:hover, .edit:hover{
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.task .taskButtons{
+    display: flex;
+    gap: 0.5rem;
 }
 
 

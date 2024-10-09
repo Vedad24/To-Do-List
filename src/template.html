@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/616c11c7f6.js" crossorigin="anonymous"></script>
     <title>TO-DO List</title>
 </head>
 <body>
@@ -11,65 +12,28 @@
         <div class="lists">
             <h2>Home</h2>
             <ul class="homeList">
-                <li><span><img src="icons/description-icon.png" alt=""></span>All Tasks</li>
-                <li<span><img src="icons/calendar-checkmark-icon.png" alt=""></span>Today</li>
-                <li><span><img src="icons/week-icon.png" alt=""></span>Week</li>
-                <li><span><img src="icons/star-full-icon.png" alt=""></span>Important</li>
+                <li><span><i class="fa-solid fa-list-check fa-xs" style="color: #ffffff;"></i></span><button class="all">All Tasks</button></li>
+                <li><span><i class="fa-regular fa-calendar-check fa-xs" style="color: #ffffff;"></i></span><button class="today">Today</button></li>
+                <li><span><i class="fa-solid fa-calendar-week fa-xs" style="color: #ffffff;"></i></span><button class="week">Week</button></li>
+                <li><span><i class="fa-solid fa-star fa-xs" style="color: #ffffff;"></i></span><button class="important">Important</button></li>
             </ul>
             <h2>Projects</h2>
             <ul class="projectList">
-                <li><span><img src="icons/customize-icon.png" alt=""></span>Test Project</li>
+                <li><span><i class="fa-solid fa-screwdriver-wrench fa-xs" style="color: #ffffff;"></i></span><button>Test Project</button></li>
             </ul>
         </div>
-        <button>Login</button>
+        <button class="login">Login</button>
         <p>Made by Vedad Trako</p>
     </div>
     <div class="content">
         <div class="todoName">
-            <h1>Today</h1>
+            <h1>None</h1>
         </div>
         <div class="date">
-            <h1>6. October</h1>
-            <h2>2 Tasks Left</h2>
+            <h1 class="todayDate">6. October</h1>
+            <h2>0 Tasks Left</h2>
         </div>
         <div class="tasks">
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-                <button class="delete">X</button>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
-            <div class="task">
-                <input type="checkbox">
-                <p>Create magic through my mind, my heart and my keyboard</p>
-            </div>
         </div>
     </div>
 </body>
