@@ -1,0 +1,26 @@
+#dialog{
+    align-self: center;
+    justify-self: center;
+    width: 25rem;
+    height: 30rem;
+}
+
+#dialog::backdrop{
+    backdrop-filter: blur(3px);
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    font-size: 20px;
+}
+
+.inputs textarea{
+    height: 100px;
+    resize: vertical;
+}
+
+.add-task{
+    
+}

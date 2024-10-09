@@ -27,14 +27,23 @@
     </div>
     <div class="content">
         <div class="todoName">
-            <h1>None</h1>
+            <h1 class="sectionName">None</h1>
         </div>
         <div class="date">
             <h1 class="todayDate">6. October</h1>
-            <h2>0 Tasks Left</h2>
+            <h2 class="taskNumber">0 Tasks Left</h2>
         </div>
         <div class="tasks">
         </div>
     </div>
+    <dialog id="dialog">
+        <form class="inputs">
+            <label for="task-title">Title:</label>
+            <input type="text" id="task-title">
+            <label for="task-description">Description:</label>
+            <textarea type="" id="task-description"></textarea>
+            <button type="button" class="add-task">Add</button>
+        </form>
+    </dialog>
 </body>
 </html>
