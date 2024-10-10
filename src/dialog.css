@@ -3,6 +3,9 @@
     justify-self: center;
     width: 25rem;
     height: 30rem;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
 }
 
 #dialog::backdrop{
@@ -16,11 +19,43 @@
     font-size: 20px;
 }
 
+.inputs #task-title, textarea{
+    padding: 4px;
+    font-size: 16px;
+}
+
 .inputs textarea{
     height: 100px;
     resize: vertical;
 }
 
+.dialogTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFAD60;
+    padding: 10px;
+}
+
 .add-task{
-    
+    width: 50px;
+    background-color: #FFAD60;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+#task-priority{
+    width: 16px;
+    height: 16px;
+}
+
+.priorityDiv{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dialogItem{
+    margin-bottom: 10px;
 }

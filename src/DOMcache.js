@@ -3,4 +3,5 @@ export class contentDOM{
     static todayDate = document.querySelector(".todayDate");
     static taskNumber = document.querySelector(".taskNumber");
     static tasks = document.querySelector(".tasks");
+    static dialog = document.querySelector("#dialog");
 }

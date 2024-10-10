@@ -4,15 +4,13 @@ import { allTasks } from "./allTasks";
 import { today } from "./today";
 import { important } from "./important";
 import { contentDOM } from "./DOMcache";
+import { dialogFunc } from "./dialog";
 
 const d = new Date();
 const month = d.toLocaleString('default', { month: 'long' });
 
 allTasks();
-
-let dialog = document.querySelector("#dialog");
-
-dialog.showModal();
+dialogFunc();
 
 document.querySelector(".all").addEventListener("click", allTasks);
 document.querySelector(".today").addEventListener("click", today);

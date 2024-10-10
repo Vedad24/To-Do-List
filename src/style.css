@@ -95,8 +95,16 @@ body{
     background-color: rgb(255, 255, 255, 0.6);
 }
 
-.todoName{
+.taskCountAdd{
+    display: flex;
+    gap:20px;
+}
 
+.taskCountAdd button{
+    background-color: rgb(255, 255, 255, 0);
+    width: 30px;
+    height: 30px;
+    border: 0;
 }
 
 .date{
