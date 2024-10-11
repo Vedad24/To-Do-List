@@ -11,7 +11,9 @@ export function dialogFunc() {
             priority: document.querySelector("#task-priority").checked
         }
         console.log(t);
+        contentDOM.allItemTasks.push(t);
         contentDOM.dialog.close();
         document.querySelector(".inputs").reset();
     });
 }
+

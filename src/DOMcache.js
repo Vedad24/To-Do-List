@@ -4,4 +4,5 @@ export class contentDOM{
     static taskNumber = document.querySelector(".taskNumber");
     static tasks = document.querySelector(".tasks");
     static dialog = document.querySelector("#dialog");
+    static allItemTasks = [];
 }

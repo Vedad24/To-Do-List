@@ -17,3 +17,7 @@ document.querySelector(".today").addEventListener("click", today);
 document.querySelector(".important").addEventListener("click", important);
 
 contentDOM.todayDate.innerHTML = `${d.getDay()}. ${month} ${d.getFullYear()}`;
+
+document.querySelector(".all").addEventListener("click", function () {
+    console.log(contentDOM.allItemTasks);
+});
