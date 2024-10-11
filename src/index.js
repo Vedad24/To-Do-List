@@ -2,6 +2,7 @@ import "./style.css";
 import "./dialog.css"
 import { allTasks } from "./allTasks";
 import { today } from "./today";
+import { week } from "./week";
 import { important } from "./important";
 import { contentDOM } from "./DOMcache";
 import { dialogFunc } from "./dialog";
@@ -14,6 +15,7 @@ dialogFunc();
 
 document.querySelector(".all").addEventListener("click", allTasks);
 document.querySelector(".today").addEventListener("click", today);
+document.querySelector(".week").addEventListener("click", week);
 document.querySelector(".important").addEventListener("click", important);
 
 contentDOM.todayDate.innerHTML = `${d.getDay()}. ${month} ${d.getFullYear()}`;

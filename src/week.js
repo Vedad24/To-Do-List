@@ -1,7 +1,7 @@
 import { contentDOM } from "./DOMcache";
 import { refreshTasks } from "./dialog";
 
-export function allTasks() {
-    contentDOM.sectionName.innerHTML = "All Tasks";
+export function week() {
+    contentDOM.sectionName.innerHTML = "Week";
     refreshTasks(contentDOM.sectionName.innerHTML);
 }
