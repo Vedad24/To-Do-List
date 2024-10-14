@@ -1,4 +1,4 @@
-#dialog{
+#dialog {
     align-self: center;
     justify-self: center;
     width: 25rem;
@@ -8,28 +8,29 @@
     box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
 }
 
-#dialog::backdrop{
+#dialog::backdrop {
     backdrop-filter: blur(3px);
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
     font-size: 20px;
 }
 
-.inputs #task-title, textarea{
+.inputs #task-title,
+textarea {
     padding: 4px;
     font-size: 16px;
 }
 
-.inputs textarea{
+.inputs textarea {
     height: 100px;
     resize: vertical;
 }
 
-.dialogTitle{
+.dialogTitle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,25 +38,25 @@
     padding: 10px;
 }
 
-.add-task{
+.add-task {
     width: 50px;
     background-color: #FFAD60;
     margin-top: 20px;
     align-self: flex-end;
 }
 
-#task-priority{
+#task-priority {
     width: 16px;
     height: 16px;
 }
 
-.priorityDiv{
+.priorityDiv {
     height: 40px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.dialogItem{
+.dialogItem {
     margin-bottom: 10px;
 }

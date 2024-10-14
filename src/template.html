@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="icons/notepad-files-dual-tone-icon.png">
@@ -7,20 +8,26 @@
     <script src="https://kit.fontawesome.com/616c11c7f6.js" crossorigin="anonymous"></script>
     <title>TO-DO List</title>
 </head>
+
 <body>
     <div class="sidebar">
         <h1 class="logo">TodoNest</h1>
         <div class="lists">
             <h2>Home</h2>
             <ul class="homeList">
-                <li><span><i class="fa-solid fa-list-check fa-xs" style="color: #ffffff;"></i></span><button class="all">All Tasks</button></li>
-                <li><span><i class="fa-regular fa-calendar-check fa-xs" style="color: #ffffff;"></i></span><button class="today">Today</button></li>
-                <li><span><i class="fa-solid fa-calendar-week fa-xs" style="color: #ffffff;"></i></span><button class="week">Week</button></li>
-                <li><span><i class="fa-solid fa-star fa-xs" style="color: #ffffff;"></i></span><button class="important">Important</button></li>
+                <li><span><i class="fa-solid fa-list-check fa-xs" style="color: #ffffff;"></i></span><button
+                        class="all">All Tasks</button></li>
+                <li><span><i class="fa-regular fa-calendar-check fa-xs" style="color: #ffffff;"></i></span><button
+                        class="today">Today</button></li>
+                <li><span><i class="fa-solid fa-calendar-week fa-xs" style="color: #ffffff;"></i></span><button
+                        class="week">Week</button></li>
+                <li><span><i class="fa-solid fa-star fa-xs" style="color: #ffffff;"></i></span><button
+                        class="important">Important</button></li>
             </ul>
             <h2>Projects</h2>
             <ul class="projectList">
-                <li><span><i class="fa-solid fa-screwdriver-wrench fa-xs" style="color: #ffffff;"></i></span><button>Test Project</button></li>
+                <li><span><i class="fa-solid fa-screwdriver-wrench fa-xs"
+                            style="color: #ffffff;"></i></span><button>Test Project</button></li>
             </ul>
         </div>
         <button class="login">Login</button>
@@ -34,7 +41,8 @@
             <h1 class="todayDate">6. October</h1>
             <div class="taskCountAdd">
                 <h2 class="taskNumber">0 Tasks Left</h2>
-                <button class="addButton"><i class="fa-solid fa-square-plus fa-2xl" style="color: #000000;"></i></button>
+                <button class="addButton"><i class="fa-solid fa-square-plus fa-2xl"
+                        style="color: #000000;"></i></button>
             </div>
         </div>
         <div class="tasks">
@@ -45,13 +53,13 @@
             <h1>Add Task</h1>
         </div>
         <form class="inputs">
-            <label for="task-title">Title:</label>
+            <label for="task-title" class="lTitle">Title*:</label>
             <input type="text" id="task-title" class="dialogItem">
             <label for="task-description">Description:</label>
             <textarea type="" id="task-description" class="dialogItem"></textarea>
             <label for="due">Due date:</label>
             <input type="date" id="due" name="due" class="dialogItem">
-            <label for="taskType">Choose a car:</label>
+            <label for="taskType">Choose a category:</label>
             <select name="taskType" id="taskType">
                 <option value="All Tasks">All</option>
                 <option value="Today">Today</option>
@@ -66,4 +74,5 @@
         </form>
     </dialog>
 </body>
+
 </html>

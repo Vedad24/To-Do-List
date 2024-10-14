@@ -1,20 +1,30 @@
 import { contentDOM } from "./DOMcache";
 
+export function populateStorage() {
+    localStorage.setItem("taskList", JSON.stringify(contentDOM.allItemTasks));
+}
+
 export function dialogFunc() {
     document.querySelector(".addButton").addEventListener("click", function () { contentDOM.dialog.showModal(); });
     document.querySelector(".add-task").addEventListener("click", function () {
-        document.querySelector("#task-title").value;
+        if (!(document.querySelector("#task-title").value).trim().length) {
+            contentDOM.labelTitle.style.color = "red";
+            return;
+        }
+        contentDOM.labelTitle.style.color = "black";
         let t = {
             title: document.querySelector("#task-title").value,
             description: document.querySelector("#task-description").value,
             dueDate: document.querySelector("#due").value,
             priority: document.querySelector("#task-priority").checked,
-            type: document.querySelector("#taskType").value
+            type: document.querySelector("#taskType").value,
+            finished: false
         }
         contentDOM.allItemTasks.push(t);
         refreshTasks(contentDOM.sectionName.innerHTML);
         contentDOM.dialog.close();
         document.querySelector(".inputs").reset();
+        populateStorage();
     });
 }
 
@@ -26,8 +36,8 @@ export function refreshTasks(typeName) {
             return;
         }
         contentDOM.tasks.innerHTML +=
-        `
-            <div class="task">
+            `
+            <div class="task ${task.priority}">
                 <div class="taskText">
                     <input type="checkbox" class="mark">
                     <p>${task.title}</p>
@@ -44,7 +54,7 @@ export function refreshTasks(typeName) {
         if (mark.checked == true) {
             mark.nextElementSibling.style.textDecoration = "line-through";
             mark.nextElementSibling.style.color = "gray";
-        } 
+        }
         else {
             mark.nextElementSibling.style.textDecoration = "none";
             mark.nextElementSibling.style.color = "black";

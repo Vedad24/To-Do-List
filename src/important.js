@@ -9,8 +9,8 @@ export function important() {
             return;
         }
         contentDOM.tasks.innerHTML +=
-        `
-            <div class="task">
+            `
+            <div class="task ${task.priority}">
                 <div class="taskText">
                     <input type="checkbox" class="mark">
                     <p>${task.title}</p>
@@ -27,7 +27,7 @@ export function important() {
         if (mark.checked == true) {
             mark.nextElementSibling.style.textDecoration = "line-through";
             mark.nextElementSibling.style.color = "gray";
-        } 
+        }
         else {
             mark.nextElementSibling.style.textDecoration = "none";
             mark.nextElementSibling.style.color = "black";

@@ -1,24 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: beige;
     display: grid;
     grid-template-columns: 1fr 4fr;
     color: #FFFFFF;
 }
 
-.sidebar{
+.sidebar {
     background-color: #8A5B2F;
     height: 100vh;
     display: grid;
     grid-template-rows: 0.5fr 2fr 1fr 0.2fr;
 }
 
-.sidebar .lists button{
+.sidebar .lists button {
     background-color: rgb(255, 255, 255, 0);
     color: white;
     font-size: 20px;
@@ -27,29 +27,30 @@ body{
     cursor: pointer;
 }
 
-.sidebar h1{
+.sidebar h1 {
     font-size: 45px;
     padding: 1rem 1.2rem;
 }
 
-.sidebar .lists{
+.sidebar .lists {
     padding: 1.5rem 2.5rem;
 }
 
-.sidebar i{
+.sidebar i {
     width: 16px;
     margin-right: 6px;
 }
 
-.homeList span, .projectList span{
+.homeList span,
+.projectList span {
     margin-right: 0.2rem;
 }
 
-.sidebar h2{
+.sidebar h2 {
     font-size: 30px;
 }
 
-.sidebar ul{
+.sidebar ul {
     margin-top: 5px;
     list-style: none;
     padding-left: 0.7rem;
@@ -58,11 +59,11 @@ body{
     font-weight: 600;
 }
 
-.sidebar .homeList{
+.sidebar .homeList {
     margin-bottom: 2rem;
 }
 
-.sidebar .login{
+.sidebar .login {
     width: 150px;
     height: 26%;
     align-self: center;
@@ -73,11 +74,11 @@ body{
     background-color: #FFAD60;
 }
 
-.sidebar p{
+.sidebar p {
     margin-left: 2rem;
 }
 
-.content{
+.content {
     background-color: #FFEEAD;
     color: black;
     display: flex;
@@ -87,7 +88,9 @@ body{
     gap: 2rem;
 }
 
-.todoName, .date, .tasks{
+.todoName,
+.date,
+.tasks {
     padding: 1rem 2rem;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -95,25 +98,25 @@ body{
     background-color: rgb(255, 255, 255, 0.6);
 }
 
-.taskCountAdd{
+.taskCountAdd {
     display: flex;
-    gap:20px;
+    gap: 20px;
 }
 
-.taskCountAdd button{
+.taskCountAdd button {
     background-color: rgb(255, 255, 255, 0);
     width: 30px;
     height: 30px;
     border: 0;
 }
 
-.date{
+.date {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.tasks{
+.tasks {
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -122,7 +125,11 @@ body{
     gap: 1rem;
 }
 
-.task{
+.tasks .true{
+    border-bottom: 2px solid red;
+}
+
+.task {
     border-bottom: 2px solid rgb(153, 151, 151);
     font-size: 20px;
     display: flex;
@@ -135,33 +142,35 @@ body{
 
 }
 
-.taskText{
+.taskText {
     display: flex;
     gap: 1rem;
 }
 
-.task input{
+.task input {
     width: 20px;
     accent-color: green;
 }
 
-.task .delete, .edit{
+.task .delete,
+.edit {
     width: 30px;
     height: 30px;
     align-self: flex-end;
     background-color: rgb(255, 255, 255, 0);
-    border:none;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.task .delete:hover, .edit:hover{
+.task .delete:hover,
+.edit:hover {
     border: 2px solid black;
     border-radius: 20px;
 }
 
-.task .taskButtons{
+.task .taskButtons {
     display: flex;
     gap: 0.5rem;
 }
@@ -178,17 +187,17 @@ body{
     background: #FFAD60;
     border-top-right-radius: 100vw;
     border-bottom-right-radius: 100vw;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: white;
     border: 5px solid #FFAD60;
     border-top-right-radius: 100vw;
     border-bottom-right-radius: 100vw;
-  }
-  
-  /* Handle on hover */
- /*  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+/*  ::-webkit-scrollbar-thumb:hover {
     background: rgb(216, 216, 216);
   } */
