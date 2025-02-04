@@ -20,9 +20,11 @@ contentDOM.weekSection.addEventListener("click", week);
 contentDOM.importantSection.addEventListener("click", important);
 contentDOM.todayDate.innerHTML = `${d.getUTCDate()}. ${month} ${d.getFullYear()}`;
 
-document.querySelector(".all").addEventListener("click", function () {
+/* document.querySelector(".all").addEventListener("click", function () {
     console.log(contentDOM.allItemTasks);
-});
+}); */
+
+//hello world
 
 if (!localStorage.getItem("taskList")) {
     console.log("empty");
