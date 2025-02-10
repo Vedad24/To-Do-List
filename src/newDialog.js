@@ -1,41 +1,42 @@
 import { contentDOM } from "./DOMcache";
 
 export function addItemsToLocalStorage(title) {
-    if (localStorage.getItem("testingList") === null) {
+    /* if (localStorage.getItem("testingList") === null) {
         return;
     }
     else {
         
         contentDOM.testingList = JSON.parse(localStorage.getItem("testingList") || []);
         loadTasks(title);
-    }
+    } */
     //localStorage.clear();
 }
 
 document.querySelector(".addButton").addEventListener("click", function () {
     contentDOM.dialog.showModal();
+});
+document.querySelector(".add-task").addEventListener("click", function () {
+    //Make task object
+    let newTask =
+    {
+        Id: contentDOM.testingList.length,
+        Title: document.querySelector("#task-title").value,
+        Description: document.querySelector("#task-description").value,
+        DueDate: document.querySelector("#due").value,
+        Priority: document.querySelector("#task-priority").checked,
+        Type: document.querySelector("#taskType").value,
+        Finished: false
+    };
+    //Close the dialog
+    contentDOM.dialog.close();
+    document.querySelector(".inputs").reset();
+    //Push the task to the list
+    contentDOM.testingList.push(newTask);
+    console.log(contentDOM.testingList);
+    //Load the tasks
+    loadTasks(contentDOM.sectionName.innerHTML);
 
-    document.querySelector(".add-task").addEventListener("click", function () {
-        //Make task object
-        let newTask =
-        {
-            Id: contentDOM.testingList.length,
-            Title: document.querySelector("#task-title").value,
-            Description: document.querySelector("#task-description").value,
-            DueDate: document.querySelector("#due").value,
-            Priority: document.querySelector("#task-priority").checked,
-            Type: document.querySelector("#taskType").value,
-            Finished: false
-        };
-        //Push the task to the list
-        contentDOM.testingList.push(newTask);
-        localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
-        //Close the dialog
-        contentDOM.dialog.close();
-        document.querySelector(".inputs").reset();
-        //Load the tasks
-        loadTasks(contentDOM.sectionName.innerHTML);
-    });
+    localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
 });
 
 
@@ -74,12 +75,16 @@ export function loadTasks(title) {
             foundTask.Finished = false; 
             mark.nextElementSibling.style.textDecoration = "none";
             mark.nextElementSibling.style.color = "black";
-        }
-        localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+       }
+       localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
     }));
-    /* document.querySelectorAll(".delete").forEach(del => del.addEventListener("click", function () {
+    document.querySelectorAll(".delete").forEach(del => del.addEventListener("click", function () {
         let idSearch = del.getAttribute("dt-id");
-        delete contentDOM.testingList[idSearch];
+        contentDOM.testingList = contentDOM.testingList.filter(function (item) {
+            return item.Id != idSearch;
+        });
         console.log(contentDOM.testingList)
-    })) */
+        loadTasks(contentDOM.sectionName.innerHTML);
+        localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+    }))
 }

@@ -11,5 +11,5 @@ export class contentDOM {
     static weekSection = document.querySelector(".week");
     static importantSection = document.querySelector(".important");
 
-    static testingList = [];
+    static testingList = new Array();
 }

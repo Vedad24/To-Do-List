@@ -1,11 +1,11 @@
 import { contentDOM } from "./DOMcache";
 
 export function populateStorage() {
-    localStorage.setItem("taskList", JSON.stringify(contentDOM.allItemTasks));
+    /* localStorage.setItem("taskList", JSON.stringify(contentDOM.allItemTasks)); */
 }
 
 export function dialogFunc() {
-    document.querySelector(".addButton").addEventListener("click", function () { contentDOM.dialog.showModal(); });
+  /*   document.querySelector(".addButton").addEventListener("click", function () { contentDOM.dialog.showModal(); });
     document.querySelector(".add-task").addEventListener("click", function () {
         if (!(document.querySelector("#task-title").value).trim().length) {
             contentDOM.labelTitle.style.color = "red";
@@ -26,11 +26,11 @@ export function dialogFunc() {
         contentDOM.dialog.close();
         document.querySelector(".inputs").reset();
         populateStorage();
-    });
+    }); */
 }
 
 export function refreshTasks(typeName) {
-    contentDOM.tasks.innerHTML = "";
+   /*  contentDOM.tasks.innerHTML = "";
     let index = 0;
     contentDOM.allItemTasks.forEach(task => {
         task.id = index++;
@@ -68,5 +68,5 @@ export function refreshTasks(typeName) {
             mark.nextElementSibling.style.color = "black";
         }
         populateStorage();
-    }))
+    })) */
 }

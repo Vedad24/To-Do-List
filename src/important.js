@@ -3,7 +3,7 @@ import { refreshTasks } from "./dialog";
 import { populateStorage } from "./dialog";
 
 export function important() {
-    contentDOM.sectionName.innerHTML = "Important";
+    /* contentDOM.sectionName.innerHTML = "Important";
     contentDOM.tasks.innerHTML = "";
     let index = 0;
     contentDOM.allItemTasks.forEach(task => {
@@ -42,5 +42,5 @@ export function important() {
             mark.nextElementSibling.style.color = "black";
         }
         populateStorage();
-    }))
+    })) */
 }

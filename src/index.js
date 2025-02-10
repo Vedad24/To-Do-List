@@ -5,7 +5,6 @@ import { today } from "./today";
 import { week } from "./week";
 import { important } from "./important";
 import { contentDOM } from "./DOMcache";
-import { dialogFunc } from "./dialog";
 import { addItemsToLocalStorage, loadTasks } from "./newDialog";
 
 const d = new Date();
@@ -17,8 +16,12 @@ contentDOM.weekSection.addEventListener("click", week);
 contentDOM.importantSection.addEventListener("click", important);
 contentDOM.todayDate.innerHTML = `${d.getUTCDate()}. ${month} ${d.getFullYear()}`;
 
-allTasks();
+if (localStorage.getItem("testingList") != null) {
+    contentDOM.testingList = JSON.parse(localStorage.getItem("testingList") || []);
+    loadTasks("All Tasks");
+}
 
+allTasks();
 /* if (!localStorage.getItem("testingList")) {
     console.log("empty");
 }
