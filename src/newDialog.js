@@ -1,17 +1,5 @@
 import { contentDOM } from "./DOMcache";
 
-export function addItemsToLocalStorage(title) {
-    /* if (localStorage.getItem("testingList") === null) {
-        return;
-    }
-    else {
-        
-        contentDOM.testingList = JSON.parse(localStorage.getItem("testingList") || []);
-        loadTasks(title);
-    } */
-    //localStorage.clear();
-}
-
 document.querySelector(".addButton").addEventListener("click", function () {
     contentDOM.dialog.showModal();
 });
@@ -44,7 +32,8 @@ export function loadTasks(title) {
     contentDOM.tasks.innerHTML = "";
     contentDOM.testingList.forEach(t => {
         // cheking for the type of the task
-        if (title != t.Type && title != "All Tasks") { return; } 
+        //if (title == "Important" && t.Priority != true) { return; }
+        if ((title != t.Type && title != "All Tasks" && title != "Important") || (title == "Important" && t.Priority != true)) { return; } 
         //Adding it to the DOM
         contentDOM.tasks.innerHTML +=
             `
@@ -83,7 +72,6 @@ export function loadTasks(title) {
         contentDOM.testingList = contentDOM.testingList.filter(function (item) {
             return item.Id != idSearch;
         });
-        console.log(contentDOM.testingList)
         loadTasks(contentDOM.sectionName.innerHTML);
         localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
     }))

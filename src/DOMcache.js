@@ -7,7 +7,7 @@ export class contentDOM {
     static allItemTasks = [];
     static labelTitle = document.querySelector(".lTitle");
     static allSection = document.querySelector(".all");
-    static todazSection = document.querySelector(".today");
+    static todaySection = document.querySelector(".today");
     static weekSection = document.querySelector(".week");
     static importantSection = document.querySelector(".important");
 
