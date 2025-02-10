@@ -1,72 +1,78 @@
 import { contentDOM } from "./DOMcache";
 
-export function populateStorage() {
-    /* localStorage.setItem("taskList", JSON.stringify(contentDOM.allItemTasks)); */
-}
+document.querySelector(".addButton").addEventListener("click", function () {
+    contentDOM.dialog.showModal();
+});
+document.querySelector(".add-task").addEventListener("click", function () {
+    //Make task object
+    let newTask =
+    {
+        Id: contentDOM.testingList.length,
+        Title: document.querySelector("#task-title").value,
+        Description: document.querySelector("#task-description").value,
+        DueDate: document.querySelector("#due").value,
+        Priority: document.querySelector("#task-priority").checked,
+        Type: document.querySelector("#taskType").value,
+        Finished: false
+    };
+    //Close the dialog
+    contentDOM.dialog.close();
+    document.querySelector(".inputs").reset();
+    //Push the task to the list
+    contentDOM.testingList.push(newTask);
+    console.log(contentDOM.testingList);
+    //Load the tasks
+    loadTasks(contentDOM.sectionName.innerHTML);
 
-export function dialogFunc() {
-  /*   document.querySelector(".addButton").addEventListener("click", function () { contentDOM.dialog.showModal(); });
-    document.querySelector(".add-task").addEventListener("click", function () {
-        if (!(document.querySelector("#task-title").value).trim().length) {
-            contentDOM.labelTitle.style.color = "red";
-            return;
-        }
-        contentDOM.labelTitle.style.color = "black";
-        let t = {
-            title: document.querySelector("#task-title").value,
-            description: document.querySelector("#task-description").value,
-            dueDate: document.querySelector("#due").value,
-            priority: document.querySelector("#task-priority").checked,
-            type: document.querySelector("#taskType").value,
-            finished: false,
-            id: 0
-        }
-        contentDOM.allItemTasks.push(t);
-        refreshTasks(contentDOM.sectionName.innerHTML);
-        contentDOM.dialog.close();
-        document.querySelector(".inputs").reset();
-        populateStorage();
-    }); */
-}
+    localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+});
 
-export function refreshTasks(typeName) {
-   /*  contentDOM.tasks.innerHTML = "";
-    let index = 0;
-    contentDOM.allItemTasks.forEach(task => {
-        task.id = index++;
-        if (task.type != typeName && typeName != "All Tasks") {
-            return;
-        }
+
+export function loadTasks(title) {
+    contentDOM.tasks.innerHTML = "";
+    contentDOM.testingList.forEach(t => {
+        // cheking for the type of the task
+        //if (title == "Important" && t.Priority != true) { return; }
+        if ((title != t.Type && title != "All Tasks" && title != "Important") || (title == "Important" && t.Priority != true)) { return; } 
+        //Adding it to the DOM
         contentDOM.tasks.innerHTML +=
             `
-            <div class="task ${task.priority}">
+            <div class="task ${t.Priority}">
                 <div class="taskText">
-                    <input type="checkbox" class="mark" data-id="${task.id}" ${task.finished ? 'checked' : ''}>
-                    <p style="${task.finished ? 'text-decoration: line-through; color: gray' : ''}" >${task.title}</p>
+                    <input type="checkbox" class="mark" data-id="${t.Id}" ${t.Finished ? 'checked' : ''}>
+                    <p style="${t.Finished ? 'text-decoration: line-through; color: gray' : ''}" >${t.Title} >>>>> ${t.Type}</p>
                 </div>
                 <div class="taskButtons">
-                    <button class="edit"><i class="fa-solid fa-pen fa-lg" style="color: #000000;"></i></button>
-                    <button class="delete"><i class="fa-solid fa-trash fa-lg" style="color: #000000;"></i></button>
+                    <button class="edit""><i class="fa-solid fa-pen fa-lg" style="color: #000000;"></i></button>
+                    <button class="delete" dt-id="${t.Id}"><i class="fa-solid fa-trash fa-lg" style="color: #000000;"></i></button>
                 </div>
             </div>
         `;
     });
 
-    document.querySelectorAll(".mark").forEach(mark => mark.addEventListener("click", function () {
+    //Option to mark it  as read
+   document.querySelectorAll(".mark").forEach(mark => mark.addEventListener("click", function () {
         let indexForSearch = mark.getAttribute("data-id");
-        let foundTask = contentDOM.allItemTasks.find(task => task.id == indexForSearch);
+        let foundTask = contentDOM.testingList.find(task => task.Id == indexForSearch);
         if (mark.checked == true) {
-            foundTask.finished = true;
-
+            foundTask.Finished = true;
+    
             mark.nextElementSibling.style.textDecoration = "line-through";
             mark.nextElementSibling.style.color = "gray";
         }
         else {
-            foundTask.finished = false;
-
+            foundTask.Finished = false; 
             mark.nextElementSibling.style.textDecoration = "none";
             mark.nextElementSibling.style.color = "black";
-        }
-        populateStorage();
-    })) */
+       }
+       localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+    }));
+    document.querySelectorAll(".delete").forEach(del => del.addEventListener("click", function () {
+        let idSearch = del.getAttribute("dt-id");
+        contentDOM.testingList = contentDOM.testingList.filter(function (item) {
+            return item.Id != idSearch;
+        });
+        loadTasks(contentDOM.sectionName.innerHTML);
+        localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+    }))
 }

@@ -1,7 +1,7 @@
 import "./style.css";
 import "./dialog.css"
 import { contentDOM } from "./DOMcache";
-import { loadTasks } from "./newDialog";
+import { loadTasks } from "./dialog";
 
 const d = new Date();
 const month = d.toLocaleString('default', { month: 'long' });
