@@ -10,4 +10,6 @@ export class contentDOM {
     static todazSection = document.querySelector(".today");
     static weekSection = document.querySelector(".week");
     static importantSection = document.querySelector(".important");
+
+    static testingList = [];
 }

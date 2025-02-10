@@ -1,7 +1,6 @@
 import { contentDOM } from "./DOMcache";
-import { refreshTasks } from "./dialog";
+import { addItemsToLocalStorage, loadTasks } from "./newDialog";
 
 export function today() {
     contentDOM.sectionName.innerHTML = "Today";
-    refreshTasks(contentDOM.sectionName.innerHTML);
 }
