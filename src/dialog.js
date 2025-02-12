@@ -1,5 +1,10 @@
 import { contentDOM } from "./DOMcache";
 
+
+document.querySelector(".btnClose").addEventListener("click", () => {
+    contentDOM.dialog.close();
+    document.querySelector(".inputs").reset();
+})
 document.querySelector(".addButton").addEventListener("click", function () {
     contentDOM.dialog.showModal();
 });

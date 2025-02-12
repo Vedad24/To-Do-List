@@ -1,7 +1,7 @@
 #dialog {
     align-self: center;
     justify-self: center;
-    width: 25rem;
+    width: 24rem;
     height: 30rem;
     border-radius: 10px;
     border: 0;
@@ -43,6 +43,10 @@ textarea {
     background-color: #FFAD60;
     margin-top: 20px;
     align-self: flex-end;
+    padding: 4px;
+    border: 0;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
 }
 
 #task-priority {
@@ -59,4 +63,16 @@ textarea {
 
 .dialogItem {
     margin-bottom: 10px;
+}
+
+.btnClose {
+    background-color: #fa592d;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+    border: 0;
 }
