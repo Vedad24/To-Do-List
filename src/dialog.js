@@ -10,6 +10,7 @@ document.querySelector(".addButton").addEventListener("click", function () {
 });
 document.querySelector(".add-task").addEventListener("click", function () {
     //Make task object
+    if (document.querySelector("#task-title").value.trim() == '') { return; }
     let newTask =
     {
         Id: contentDOM.testingList.length,
