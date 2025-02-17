@@ -1,5 +1,6 @@
 import { contentDOM } from "./DOMcache";
-
+let EDIT = false;
+let EDITID = null;
 
 document.querySelector(".btnClose").addEventListener("click", () => {
     contentDOM.dialog.close();
@@ -21,24 +22,35 @@ document.querySelector(".add-task").addEventListener("click", function () {
         Type: document.querySelector("#taskType").value,
         Finished: false
     };
+    if (EDIT == true) {
+        contentDOM.testingList.forEach(t => {
+            if (t.Id == EDITID) {
+                contentDOM.testingList[EDITID] = newTask;
+                let f = t.Finished;
+                contentDOM.testingList[EDITID].Id = EDITID;
+                contentDOM.testingList[EDITID].Finished = f;
+                console.log(contentDOM.testingList);
+            }
+        })
+    }
+    else {
+        contentDOM.testingList.push(newTask);
+    }
     //Close the dialog
     contentDOM.dialog.close();
     document.querySelector(".inputs").reset();
     //Push the task to the list
-    contentDOM.testingList.push(newTask);
-    console.log(contentDOM.testingList);
     //Load the tasks
     loadTasks(contentDOM.sectionName.innerHTML);
 
     localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+    EDIT = false;
 });
-
 
 export function loadTasks(title) {
     contentDOM.tasks.innerHTML = "";
     contentDOM.testingList.forEach(t => {
         // cheking for the type of the task
-        //if (title == "Important" && t.Priority != true) { return; }
         if ((title != t.Type && title != "All Tasks" && title != "Important") || (title == "Important" && t.Priority != true)) { return; } 
         //Adding it to the DOM
         contentDOM.tasks.innerHTML +=
@@ -46,10 +58,10 @@ export function loadTasks(title) {
             <div class="task ${t.Priority}">
                 <div class="taskText">
                     <input type="checkbox" class="mark" data-id="${t.Id}" ${t.Finished ? 'checked' : ''}>
-                    <p style="${t.Finished ? 'text-decoration: line-through; color: gray' : ''}" >${t.Title} >>>>> ${t.Type}</p>
+                    <p style="${t.Finished ? 'text-decoration: line-through; color: gray' : ''}" >${t.Title} ::  ${t.Description}</p>
                 </div>
                 <div class="taskButtons">
-                    <button class="edit""><i class="fa-solid fa-pen fa-lg" style="color: #000000;"></i></button>
+                    <button class="edit" ed-id="${t.Id}"><i class="fa-solid fa-pen fa-lg" style="color: #000000;"></i></button>
                     <button class="delete" dt-id="${t.Id}"><i class="fa-solid fa-trash fa-lg" style="color: #000000;"></i></button>
                 </div>
             </div>
@@ -81,4 +93,24 @@ export function loadTasks(title) {
         loadTasks(contentDOM.sectionName.innerHTML);
         localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
     }))
+
+    document.querySelectorAll(".edit").forEach(btnEdit => btnEdit.addEventListener("click", () => {
+        let idEdit = btnEdit.getAttribute("ed-id");
+        editTask(idEdit);
+    }))
+}
+
+function editTask(fId) {
+    contentDOM.dialog.showModal();
+    EDIT = true;
+    EDITID = fId;
+    contentDOM.testingList.forEach(t => {
+        if (t.Id == fId) {
+            document.querySelector("#task-title").value = t.Title;
+            document.querySelector("#task-description").value = t.Description;
+            document.querySelector("#due").value = t.DueDate;
+            document.querySelector("#task-priority").checked = t.Priority;
+            document.querySelector("#taskType").value = t.Type;
+        }
+    });
 }
