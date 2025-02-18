@@ -48,6 +48,7 @@ document.querySelector(".add-task").addEventListener("click", function () {
 });
 
 export function loadTasks(title) {
+    contentDOM.taskNumber.innerHTML = contentDOM.testingList.length + " Tasks";
     contentDOM.tasks.innerHTML = "";
     contentDOM.testingList.forEach(t => {
         // cheking for the type of the task
@@ -61,6 +62,7 @@ export function loadTasks(title) {
                     <p style="${t.Finished ? 'text-decoration: line-through; color: gray' : ''}" >${t.Title} ::  ${t.Description}</p>
                 </div>
                 <div class="taskButtons">
+                    <button class="btnDetails" det-id="${t.Id}">Details</button>
                     <button class="edit" ed-id="${t.Id}"><i class="fa-solid fa-pen fa-lg" style="color: #000000;"></i></button>
                     <button class="delete" dt-id="${t.Id}"><i class="fa-solid fa-trash fa-lg" style="color: #000000;"></i></button>
                 </div>
@@ -98,6 +100,12 @@ export function loadTasks(title) {
         let idEdit = btnEdit.getAttribute("ed-id");
         editTask(idEdit);
     }))
+
+    document.querySelectorAll(".btnDetails").forEach(btnDet => btnDet.addEventListener("click", () => {
+        contentDOM.detailsDialog.showModal();
+        let idDet = btnDet.getAttribute("det-id");
+        loadDetails(idDet);
+    }))
 }
 
 function editTask(fId) {
@@ -113,4 +121,16 @@ function editTask(fId) {
             document.querySelector("#taskType").value = t.Type;
         }
     });
+}
+
+function loadDetails(dID) {
+    contentDOM.testingList.forEach(t => {
+        if (t.Id == dID) {
+            contentDOM.detailsDialog.querySelector("#tName").innerHTML = t.Title;
+            contentDOM.detailsDialog.querySelector(".tDescription").innerHTML = "Description: " + t.Description;
+            contentDOM.detailsDialog.querySelector(".tDueDate").innerHTML = "Due Date: " + t.DueDate;
+            contentDOM.detailsDialog.querySelector(".tPriority").innerHTML = "Priority: " + (t.Priority ? "Important" : "Regular");
+            contentDOM.detailsDialog.querySelector(".detClose").addEventListener("click", () => { contentDOM.detailsDialog.close(); });
+        }
+    })
 }

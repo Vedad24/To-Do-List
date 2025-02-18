@@ -10,6 +10,8 @@ export class contentDOM {
     static todaySection = document.querySelector(".today");
     static weekSection = document.querySelector(".week");
     static importantSection = document.querySelector(".important");
+    static detailsDialog = document.querySelector(".detailsDialog");
+    static taskNumber = document.querySelector(".taskNumber");
 
     static testingList = new Array();
 }

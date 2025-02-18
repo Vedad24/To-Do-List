@@ -40,7 +40,7 @@
         <div class="date">
             <h1 class="todayDate">6. October</h1>
             <div class="taskCountAdd">
-                <h2 class="taskNumber">0 Tasks Left</h2>
+                <h2 class="taskNumber">0 Tasks</h2>
                 <button class="addButton"><i class="fa-solid fa-square-plus fa-2xl"
                         style="color: #000000;"></i></button>
             </div>
@@ -48,6 +48,23 @@
         <div class="tasks">
         </div>
     </div>
+
+
+    <dialog class="detailsDialog" hidden>
+        <div class="detailsHeader">
+            <h1 id="tName"></h1>
+        </div>
+        <div class="detailsBody">
+            <h2 class="tDescription"></h2>
+            <h2 class="tDueDate"></h2>
+            <h2 class="tPriority"></h2>
+        </div>
+        <div class="detailsFooter">
+            <button class="detClose">Close</button>
+        </div>
+    </dialog>
+
+
     <dialog id="dialog">
         <div class="dialogTitle">
             <button class="btnClose">
