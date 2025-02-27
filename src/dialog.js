@@ -27,7 +27,7 @@ document.querySelector(".add-task").addEventListener("click", function () {
             if (t.Id == EDITID) {
                 contentDOM.testingList[EDITID] = newTask;
                 let f = t.Finished;
-                contentDOM.testingList[EDITID].Id = EDITID;
+                contentDOM.testingList[EDITID].Id = parseInt(EDITID);
                 contentDOM.testingList[EDITID].Finished = f;
                 console.log(contentDOM.testingList);
             }
@@ -92,8 +92,13 @@ export function loadTasks(title) {
         contentDOM.testingList = contentDOM.testingList.filter(function (item) {
             return item.Id != idSearch;
         });
+        let resetIndex = 0;
+        contentDOM.testingList.forEach(t => {
+            t.Id = resetIndex++;
+        });
         loadTasks(contentDOM.sectionName.innerHTML);
         localStorage.setItem("testingList", JSON.stringify(contentDOM.testingList));
+        console.log(contentDOM.testingList);
     }))
 
     document.querySelectorAll(".edit").forEach(btnEdit => btnEdit.addEventListener("click", () => {
