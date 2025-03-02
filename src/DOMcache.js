@@ -1,7 +1,6 @@
 export class contentDOM {
     static sectionName = document.querySelector(".sectionName");
     static todayDate = document.querySelector(".todayDate");
-    static taskNumber = document.querySelector(".taskNumber");
     static tasks = document.querySelector(".tasks");
     static dialog = document.querySelector("#dialog");
     static allItemTasks = [];
@@ -12,6 +11,7 @@ export class contentDOM {
     static importantSection = document.querySelector(".important");
     static detailsDialog = document.querySelector(".detailsDialog");
     static taskNumber = document.querySelector(".taskNumber");
+    static testProject = document.querySelector(".testProject");
 
     static testingList = new Array();
 }

@@ -10,6 +10,7 @@ contentDOM.allSection.addEventListener("click", () => sectionMake("All Tasks"));
 contentDOM.todaySection.addEventListener("click", () => sectionMake("Today"));
 contentDOM.weekSection.addEventListener("click", () => sectionMake("Week"));
 contentDOM.importantSection.addEventListener("click", () => sectionMake("Important"));
+contentDOM.testProject.addEventListener("click", () => sectionMake("Test Project"));
 contentDOM.todayDate.innerHTML = `${d.getUTCDate()}. ${month} ${d.getFullYear()}`;
 
 if (localStorage.getItem("testingList") != null) {
